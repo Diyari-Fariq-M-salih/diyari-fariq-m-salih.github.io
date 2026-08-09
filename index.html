@@ -64,7 +64,12 @@ maintenance. Future updates will be easy and safe.
       <meta charset="UTF-8" />
       <meta http-equiv="Cache-Control" content="no-store" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <base href="https://diyari-fariq-m-salih.github.io/"> 
+      <!-- No <base> tag on purpose. This repo is a GitHub *user* site served
+           at the domain root, so relative paths already resolve correctly.
+           A <base href="https://diyari-fariq-m-salih.github.io/"> used to sit
+           here, and it silently made every local preview load the DEPLOYED
+           css/js/images instead of your edited ones. -->
+
       <title>Diyari | Portfolio</title>
 
       <!-- Main stylesheet -->
@@ -86,6 +91,7 @@ maintenance. Future updates will be easy and safe.
 
             <nav class="layout__nav nav">
               <a href="#home" class="nav__link nav__link--active">Home</a>
+              <a href="#publications" class="nav__link">Publications</a>
               <a href="#resources" class="nav__link">Resources</a>
               <a href="#Journey" class="nav__link">Journey</a>
               <a href="#about" class="nav__link">About Me</a>
@@ -130,10 +136,99 @@ maintenance. Future updates will be easy and safe.
         ============================= -->
           <section id="home" class="section home">
             <div class="home__cards">
+              <!-- Research card A: VIDAR -->
+              <article class="home__card">
+                <div class="home__card-image">
+                  <img
+                    src="./assets/Project_VIDAR.gif"
+                    alt="VIDAR dense metric reconstruction"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="home__card-body">
+                  <h2
+                    class="home__card-title"
+                    style="cursor: pointer"
+                    onclick="window.open('https://arxiv.org/abs/2607.17171', '_blank')"
+                  >
+                    VIDAR: visual-inertial dense reconstruction
+                    <svg
+                      class="arrow-icon"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M5 12h14M13 5l7 7-7 7"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        fill="none"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </h2>
+                  <p class="home__card-date">📄 First author &middot; arXiv 2026</p>
+                </div>
+              </article>
+
+              <!-- Research card B: gesture drone -->
+              <article class="home__card">
+                <div class="home__card-image">
+                  <img
+                    src="./assets/Project_Drone.gif"
+                    alt="Identity-gated gesture control of a Tello drone"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="home__card-body">
+                  <h2
+                    class="home__card-title"
+                    style="cursor: pointer"
+                    onclick="window.open('https://github.com/Diyari-Fariq-M-salih/gesture-controlled-tello-drone', '_blank')"
+                  >
+                    Identity-gated gesture control for drones
+                    <svg
+                      class="arrow-icon"
+                      width="18"
+                      height="18"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M5 12h14M13 5l7 7-7 7"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        fill="none"
+                        stroke-linecap="round"
+                      />
+                    </svg>
+                  </h2>
+                  <p class="home__card-date">📄 First author &middot; under review</p>
+                </div>
+              </article>
+
+              <!-- Research card C: SLAM benchmark -->
+              <article class="home__card">
+                <div class="home__card-image">
+                  <img
+                    src="./assets/Project_Benchmark.jpg"
+                    alt="Localization comparison across ten SLAM systems"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="home__card-body">
+                  <h2 class="home__card-title">
+                    Vision SLAM vs LiDAR: 10-system benchmark
+                  </h2>
+                  <p class="home__card-date">
+                    📄 IEEE ICARM 2026 &middot; accepted
+                  </p>
+                </div>
+              </article>
+
               <!-- Card 1 -->
               <article class="home__card">
                 <div class="home__card-image">
-                  <img src="./assets/Project_1.gif" alt="Project preview 1" />
+                  <img src="./assets/Project_1.gif" alt="Project preview 1" loading="lazy" />
                 </div>
                 <div class="home__card-body">
                   <h2
@@ -321,6 +416,138 @@ maintenance. Future updates will be easy and safe.
           <!-- ============================
              RESOURCES SECTION (TOOLS / STACK)
         ============================= -->
+          <!-- ============================
+             PUBLICATIONS & SERVICE
+             To add a paper: copy one <article class="pub"> block and edit it.
+             Status pill colour comes from the modifier class on .pub__status:
+             --accepted, --preprint, --review. Drop the <a> wrapper on the
+             title if there is no public link yet.
+        ============================= -->
+          <section id="publications" class="section publications">
+            <hr class="section__divider" />
+            <h2 class="section__title">Publications</h2>
+            <p class="section__description">
+              Peer-reviewed work, preprints and manuscripts under review.
+            </p>
+
+            <div class="publications__list">
+              <article class="pub">
+                <h3 class="pub__title">
+                  <a
+                    href="https://arxiv.org/abs/2607.17171"
+                    target="_blank"
+                    rel="noopener"
+                    >VIDAR: Visual-Inertial Dense Alignment and Reconstruction
+                    via a Geometric Foundation Model</a
+                  >
+                </h3>
+                <p class="pub__authors">
+                  <strong>D. M. Salih</strong>, L. Hu, N. Ait
+                  Oufroukh-Mammar, F. Bonardi
+                </p>
+                <p class="pub__venue">
+                  arXiv:2607.17171 [cs.RO], July 2026 &middot; under review at
+                  IEEE ICARCV 2026
+                </p>
+                <p class="pub__note">
+                  Couples SVO visual-inertial odometry with Depth Anything 3 for
+                  metric dense monocular mapping. Inertial constraints cut mean
+                  trajectory error from 0.898&nbsp;m to 0.125&nbsp;m across 11
+                  EuRoC sequences.
+                </p>
+                <span class="pub__status pub__status--preprint"
+                  >Preprint &middot; first author</span
+                >
+              </article>
+
+              <article class="pub">
+                <h3 class="pub__title">
+                  Can Geometric Foundation Models and Vision SLAM Serve as a
+                  Viable Alternative to LiDAR for Indoor Robot Localization?
+                </h3>
+                <p class="pub__authors">
+                  L. Hu, A. Zidan, A. Qawouq, <strong>D. M. Salih</strong>, N.
+                  Ait Oufroukh, F. Bonardi
+                </p>
+                <p class="pub__venue">
+                  IEEE ICARM 2026, Université Évry Paris-Saclay, 21&ndash;23
+                  July 2026 &middot; to appear in IEEE Xplore
+                </p>
+                <p class="pub__note">
+                  Unified Gazebo/ROS benchmark of 10 SLAM systems across 6
+                  indoor environments on a Quanser QCar, covering 15,547 frames
+                  and 1.04&nbsp;km of trajectory.
+                </p>
+                <span class="pub__status pub__status--accepted">Accepted</span>
+              </article>
+
+              <article class="pub">
+                <h3 class="pub__title">
+                  <a
+                    href="https://github.com/Diyari-Fariq-M-salih/gesture-controlled-tello-drone"
+                    target="_blank"
+                    rel="noopener"
+                    >Identity-Gated Gesture Control and Deterministic Mode
+                    Arbitration for Indoor Human-Drone Interaction</a
+                  >
+                </h3>
+                <p class="pub__authors">
+                  <strong>D. M. Salih</strong>, I. Chaabeni, N. Ait
+                  Oufroukh-Mammar
+                </p>
+                <p class="pub__venue">
+                  Submitted to ARO &mdash; The Scientific Journal of Koya
+                  University &middot; poster at the IEEE ICARM 2026 Workshop on
+                  Safety-Critical Software, Control and Learning for Robotics
+                </p>
+                <p class="pub__note">
+                  MediaPipe hand landmarks with an RBF-SVM (99.71% over 7
+                  gestures) and ArcFace-style ONNX face embeddings (0.32% EER)
+                  restricting control to the enrolled operator, under a safety
+                  &gt; authorization &gt; control priority order.
+                </p>
+                <span class="pub__status pub__status--review"
+                  >Under review &middot; first author</span
+                >
+              </article>
+
+              <article class="pub">
+                <h3 class="pub__title">
+                  GCS-SLAM: Globally Consistent Static Mapping from Dynamic
+                  Scenes Without Auxiliary Inputs
+                </h3>
+                <p class="pub__authors">
+                  L. Hu, <strong>D. M. Salih</strong>, F. Bonardi, N. Ait
+                  Oufroukh, R. Ghandour
+                </p>
+                <p class="pub__venue">
+                  Manuscript under review &middot; author-response phase
+                </p>
+                <p class="pub__note">
+                  RGB-only monocular dynamic SLAM with segmentation-free dynamic
+                  object filtering, calibration-free tracking and real-time loop
+                  closure.
+                </p>
+                <span class="pub__status pub__status--review">Under review</span>
+              </article>
+            </div>
+
+            <h3 class="publications__subtitle">Service &amp; Awards</h3>
+            <ul class="publications__service">
+              <li>
+                <strong>Reviewer</strong>, IEEE ICARCV 2026 &mdash; 19th
+                International Conference on Control, Automation, Robotics and
+                Vision. Three submissions in visual-inertial odometry, SLAM and
+                foundation models for robotic perception.
+              </li>
+              <li>
+                <strong>Best Volunteer Award</strong>, IEEE ICARM 2026 &mdash;
+                recognised by the organising committee of the 11th IEEE
+                International Conference on Advanced Robotics and Mechatronics.
+              </li>
+            </ul>
+          </section>
+
           <section id="resources" class="section resources">
             <hr class="section__divider" />
             <h2 class="section__title">Resources</h2>
@@ -506,12 +733,13 @@ maintenance. Future updates will be easy and safe.
                 <div class="experience__timeline-content">
                   <h3 class="experience__timeline-heading">2025 — Present</h3>
                   <p class="experience__timeline-text">
-                    Beginning my Master’s in Smart Aerospace & Autonomous
-                    Systems, studying between Poznań, Poland and Paris–Évry,
-                    France. Working on UAV development, robotics, AI/ML systems,
-                    embedded electronics, and simulation. This period represents
-                    my international engineering growth and specialization as I
-                    prepare for a 6-month engineering internship.
+                    Master’s in Smart Aerospace &amp; Autonomous Systems, split
+                    between Poznań University of Technology and Paris-Saclay /
+                    Évry as a double degree. Since March 2026 I have been a
+                    research intern at the IBISC laboratory, working on
+                    visual-inertial perception and dense 3D mapping. First
+                    author of VIDAR, co-author on an accepted IEEE ICARM 2026
+                    paper, and a reviewer for IEEE ICARCV 2026.
                   </p>
                 </div>
               </div>
